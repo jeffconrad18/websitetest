@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post aus Pune | Ein Blog über mein soziales Jahr in Indien</title>
+    <style>
+        /* Grundlegende Einstellungen */
+        body {
+            font-family: "Times New Roman", Times, serif;
+            background-color: #f9f4e8;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Container für die "Zeitung" */
+        .newspaper {
+            max-width: 1000px;
+            margin: 20px auto;
+            background-color: #f3eee2;
+            padding: 25px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0d9c8;
+        }
+        
+        /* Zeitungskopf */
+        .header {
+            text-align: center;
+            border-bottom: 3px double #333;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            position: relative;
+        }
+        
+        .special-edition {
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-size: 0.8rem;
+            font-weight: bold;
+            padding: 2px 0;
+        }
+        
+        .location {
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 0.8rem;
+            font-weight: bold;
+            padding: 2px 0;
+        }
+        
+        .masthead {
+            font-family: "Old English Text MT", "UnifrakturMaguntia", "Times New Roman", serif;
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin: 15px 0 5px;
+            padding: 0;
+            letter-spacing: 1px;
+        }
+        
+        .header-line {
+            width: 100%;
+            height: 3px;
+            background-color: #000;
+            margin: 10px 0;
+        }
+        
+        .issue-title {
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 15px 0 5px;
+            font-weight: bold;
+        }
+        
+        /* Artikelbereich */
+        .content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+        }
+        
+        .main-content {
+            border-right: 1px solid #ccc;
+            padding-right: 20px;
+        }
+        
+        .article {
+            margin-bottom: 35px;
+        }
+        
+        .article-header {
+            margin-bottom: 15px;
+        }
+        
+        .headline {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 0 10px;
+            line-height: 1.2;
+            border-bottom: 1px solid #999;
+            padding-bottom: 5px;
+        }
+        
+        .byline {
+            font-style: italic;
+            margin: 0 0 10px;
+            font-size: 0.9rem;
+        }
+        
+        .article-content {
+            font-size: 1rem;
+            text-align: justify;
+            column-count: 2;
+            column-gap: 25px;
+        }
+        
+        /* Abschnitte im Text */
+        .dropcap {
+            float: left;
+            font-size: 3.8rem;
+            line-height: 0.8;
+            margin-right: 5px;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+        
+        /* Bilder */
+        .image-container {
+            margin: 15px 0;
+            text-align: center;
+        }
+        
+        .article-image {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 5px;
+            border: 1px solid #999;
+        }
+        
+        .caption {
+            font-size: 0.85rem;
+            font-style: italic;
+            text-align: center;
+        }
+        
+        /* Seitenleiste */
+        .sidebar {
+            padding-left: 10px;
+        }
+        
+        .sidebar-item {
+            margin-bottom: 30px;
+            background-color: #eee9df;
+            padding: 15px;
+            border: 1px solid #d9d2c0;
+        }
+        
+        .sidebar-heading {
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-bottom: 1px solid #333;
+            padding-bottom: 8px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Info-Box */
+        .info-box {
+            border: 2px solid #333;
+            padding: 15px;
+            margin: 20px 0;
+            background-color: #f9f7f1;
+        }
+        
+        .info-box-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
+        }
+        
+        .date-block {
+            text-align: center;
+            border: 2px solid #333;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: #fff;
+        }
+        
+        .date-number {
+            font-size: 2rem;
+            font-weight: bold;
+            line-height: 1;
+            margin: 0;
+        }
+        
+        .date-month {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            margin: 0;
+        }
+        
+        /* Archiv-Liste */
+        .archive-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .archive-list li {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px dotted #ccc;
+        }
+        
+        .archive-list li a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .archive-list li a:hover {
+            text-decoration: underline;
+        }
+        
+        .archive-date {
+            display: block;
+            font-size: 0.8rem;
+            font-style: italic;
+            color: #666;
+        }
+        
+        /* Über mich Sektion */
+        .about-me {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .about-me-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 2px solid #333;
+            margin-right: 15px;
+        }
+        
+        /* Join-Us Sektion */
+        .join-us {
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #333;
+            background-color: #f9f7f1;
+        }
+        
+        .join-us-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        /* Fußzeile */
+        .footer {
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 3px double #333;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsives Design */
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+            
+            .main-content {
+                border-right: none;
+                padding-right: 0;
+            }
+            
+            .article-content {
+                column-count: 1;
+            }
+        }
+        
+        /* Vintage Effekt */
+        .vintage-texture {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/png;base64,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');
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="vintage-texture"></div>
+    <div class="newspaper">
+        <div class="header">
+            <div class="special-edition">Sonderausgabe</div>
+            <div class="location">Pune, Indien</div>
+            <h1 class="masthead">Post aus Pune</h1>
+            <div class="header-line"></div>
+            <h2 class="issue-title">Mein soziales Jahr mit den Jesuiten in Indien</h2>
+        </div>
+        
+        <div class="content">
+            <div class="main-content">
+                <div class="article">
+                    <div class="article-header">
+                        <h2 class="headline">Über mich</h2>
+                    </div>
+                    
+                    <div class="article-content">
+                        <p><span class="dropcap">M</span>ein Name ist [Dein Name] und ich bin seit zwei Jahren als freier Mitarbeiter für den Berchtesgadener Anzeiger tätig. Nach meinem Abitur habe ich mich entschieden, ein soziales Jahr in Indien zu absolvieren, bevor ich mein Studium beginne. Die kommenden zwölf Monate werde ich in Pune, einer der größten Städte Indiens, verbringen und dort mit den Jesuiten zusammenarbeiten.</p>
+                        
+                        <p>Warum Indien? Die Frage wurde mir oft gestellt, und die Antwort ist einfach: Ich möchte meinen Horizont erweitern, andere Kulturen kennenlernen und gleichzeitig etwas Sinnvolles tun. Die Arbeit der Jesuiten in Indien hat eine lange Tradition und umfasst zahlreiche soziale Projekte in den Bereichen Bildung, Gesundheit und Gemeindeentwicklung.</p>
+                        
+                        <div class="image-container">
+                            <img class="article-image" src="/api/placeholder/400/300" alt="Porträt des Autors">
+                            <p class="caption">Bereit für das Abenteuer: Kurz vor dem Abflug nach Indien.</p>
+                        </div>
+                        
+                        <p>Während meines Aufenthalts werde ich regelmäßig über meine Erfahrungen berichten. Dieser Blog dient als Fenster in eine andere Welt - für meine Familie, Freunde und alle, die am Berchtesgadener Anzeiger interessiert sind. Ich hoffe, dass meine Berichte nicht nur unterhalten, sondern auch zum Nachdenken anregen und vielleicht sogar den einen oder anderen inspirieren.</p>
+                        
+                        <p>Meine Aufgaben in Pune werden vielfältig sein: Englischunterricht für Kinder und Jugendliche, Mitarbeit in sozialen Einrichtungen und Unterstützung der Jesuiten bei ihrer täglichen Arbeit. Ich freue mich auf diese Herausforderungen und bin gespannt, was die Zukunft bringen wird.</p>
+                    </div>
+                </div>
+                
+                <div class="article">
+                    <div class="article-header">
+                        <h2 class="headline">Die Stadt Pune</h2>
+                        <p class="byline">Ein kulturelles und wirtschaftliches Zentrum im Westen Indiens</p>
+                    </div>
+                    
+                    <div class="article-content">
+                        <p><span class="dropcap">P</span>une liegt im Bundesstaat Maharashtra etwa 150 Kilometer südöstlich von Mumbai. Mit mehr als 3,5 Millionen Einwohnern ist sie die zweitgrößte Stadt des Bundesstaates und ein wichtiges Bildungs- und Wirtschaftszentrum. Oft wird Pune als "Oxford des Ostens" bezeichnet, da die Stadt für ihre exzellenten Universitäten und Forschungseinrichtungen bekannt ist.</p>
+                        
+                        <p>Die Geschichte Punes reicht bis ins 8. Jahrhundert zurück. Im 17. Jahrhundert wurde die Stadt zum Zentrum des Maratha-Reiches unter Shivaji Maharaj. Später, während der britischen Kolonialzeit, entwickelte sich Pune zu einem wichtigen militärischen Stützpunkt. Diese reiche Geschichte spiegelt sich in zahlreichen historischen Gebäuden, Tempeln und Palästen wider.</p>
+                        
+                        <div class="image-container">
+                            <img class="article-image" src="/api/placeholder/400/300" alt="Stadtansicht von Pune">
+                            <p class="caption">Historische und moderne Architektur prägt das Stadtbild von Pune.</p>
+                        </div>
+                        
+                        <p>Das Klima in Pune ist angenehmer als in vielen anderen indischen Städten. Die Lage auf einem Plateau etwa 560 Meter über dem Meeresspiegel sorgt für moderate Temperaturen. Die Regenzeit von Juni bis September bringt ergiebige Niederschläge, während die Wintermonate von November bis Februar mild und trocken sind.</p>
+                        
+                        <p>Kulturell hat Pune viel zu bieten: klassische indische Musik, Tanz, Theater und eine lebendige Kunstszene. Die Stadt ist zudem ein Zentrum der Marathi-Literatur und des marathi-sprachigen Films. Zahlreiche Festivals wie Ganesh Chaturthi und Diwali werden hier besonders lebhaft gefeiert.</p>
+                        
+                        <p>In den letzten Jahrzehnten hat sich Pune auch zu einem bedeutenden Technologiestandort entwickelt, mit zahlreichen IT-Unternehmen und einem florierenden Automobilsektor. Trotz dieser rasanten Modernisierung bewahrt die Stadt ihren einzigartigen Charakter und ihre kulturellen Traditionen.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar">
+                <div class="sidebar-item">
+                    <div class="about-me">
+                        <img class="about-me-image" src="/api/placeholder/100/100" alt="Porträt">
+                        <div>
+                            <strong>[Dein Name]</strong><br>
+                            Student & Journalist<br>
+                            Freier Mitarbeiter beim Berchtesgadener Anzeiger
+                        </div>
+                    </div>
+                    <p>Seit zwei Jahren berichte ich für den Berchtesgadener Anzeiger über lokale Ereignisse. Nun wage ich den Sprung nach Indien, um ein Jahr lang soziale Arbeit zu leisten und von meinen Erfahrungen zu berichten.</p>
+                </div>
+                
+                <div class="info-box">
+                    <div class="info-box-title">Nächste Ausgabe</div>
+                    <div class="date-block">
+                        <p class="date-number">15</p>
+                        <p class="date-month">Nov</p>
+                    </div>
+                    <p>In der nächsten Ausgabe: Meine ersten Eindrücke von Pune und dem Jesuitenprojekt. Wie sieht der Alltag in einer indischen Großstadt aus? Was sind die größten Herausforderungen?</p>
+                </div>
+                
+                <div class="sidebar-item">
+                    <h3 class="sidebar-heading">Archiv</h3>
+                    <ul class="archive-list">
+                        <li>
+                            <a href="#">Auf dem Weg nach Indien</a>
+                            <span class="archive-date">Oktober 2025</span>
+                        </li>
+                        <li>
+                            <a href="#">Erste Wochen in Pune</a>
+                            <span class="archive-date">November 2025</span>
+                        </li>
+                        <li>
+                            <a href="#">Die Arbeit der Jesuiten</a>
+                            <span class="archive-date">Dezember 2025</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="sidebar-item">
+                    <h3 class="sidebar-heading">Wissenswertes über Pune</h3>
+                    <p><strong>Einwohner:</strong> ca. 3,5 Millionen</p>
+                    <p><strong>Sprache:</strong> Marathi, Hindi, Englisch</p>
+                    <p><strong>Klima:</strong> Gemäßigt, Regenzeit von Juni bis September</p>
+                    <p><strong>Bekannt für:</strong> Universitäten, historische Stätten, IT-Industrie</p>
+                    <p><strong>Sehenswürdigkeiten:</strong> Shaniwar Wada, Aga Khan Palace, Osho Ashram</p>
+                </div>
+                
+                <div class="join-us">
+                    <div class="join-us-title">Schreibt mir!</div>
+                    <p>Habt ihr Fragen zu Indien oder meiner Arbeit dort? Möchtet ihr mehr über ein bestimmtes Thema erfahren? Schreibt mir gerne an:</p>
+                    <p><strong>[deine-email@example.com]</strong></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Post aus Pune | [Dein Name] | In Zusammenarbeit mit dem Berchtesgadener Anzeiger</p>
+            <p>&copy; 2025 | Alle Rechte vorbehalten</p>
+        </div>
+    </div>
+</body>
+</html>

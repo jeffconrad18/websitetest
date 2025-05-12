@@ -22,17 +22,33 @@
         h1 {
             color: #333;
         }
-        iframe {
+        object {
             border: 1px solid #ddd;
+        }
+        .fallback {
+            text-align: center;
+            padding: 20px;
+            border: 1px dashed #ccc;
+        }
+        .fallback a {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .fallback a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>PDF Dokument: home.pdf</h1>
-        <iframe src="home.pdf" width="100%" height="600px" loading="lazy" title="PDF-Dokument">
-            <a href="home.pdf">PDF herunterladen</a>
-        </iframe>
+        <object data="home.pdf" type="application/pdf" width="100%" height="600px">
+            <div class="fallback">
+                <p>Ihr Browser kann keine PDFs direkt anzeigen.</p>
+                <p><a href="home.pdf">Klicken Sie hier, um die PDF herunterzuladen</a>.</p>
+            </div>
+        </object>
     </div>
 </body>
 </html>

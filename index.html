@@ -22,12 +22,17 @@
         h1 {
             color: #333;
         }
+        iframe {
+            border: 1px solid #ddd;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>PDF Dokument: home.pdf</h1>
-        <embed src="home.pdf" type="application/pdf" width="100%" height="600px">
+        <iframe src="home.pdf" width="100%" height="600px" loading="lazy" title="PDF-Dokument">
+            <a href="home.pdf">PDF herunterladen</a>
+        </iframe>
     </div>
 </body>
 </html>
